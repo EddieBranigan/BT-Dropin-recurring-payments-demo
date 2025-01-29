@@ -1,0 +1,18 @@
+const express = require('express');
+var path = require('path');
+const app = express();
+const port = 3000;
+const checkout = require('./routes/checkout');
+const { json, urlencoded } = require('body-parser');
+
+app.use(json());
+app.use(urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/checkout', checkout);
+app.get('/', (req, res) => { res.send(index.html) })
+app.get('/cit', (req, res) => { res.send(cit.html) })
+app.get('/token', (req, res) => { res.send(token.html) })
+app.get('/mit', (req, res) => { res.send(mit.html) })
+app.listen(port, () => { console.log(`App listening on port ${port}`) })
+
+module.exports = app;

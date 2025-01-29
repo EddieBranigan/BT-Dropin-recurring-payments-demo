@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://js.braintreegateway.com/web/dropin/1.31.2/js/dropin.min.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>CIT</title>
+
+</head>
+
+<body>
+  <div="main">
+    <nav>
+      <ul>
+          <li><a href="/cit.html">Customer Initiated transaction</a></li>
+          <li><a href="/token.html">Creating a payment nonce</a></li>
+          <li><a href="/mit.html">Creating a merchant initiated transaction</a></li>
+      </ul>
+  </nav>
+    <div id="dropin-container"></div><button id="submit-button">Pay now</button>
+    <br>
+    <h3>Server SDK Response:</h3>
+    <div id="checkout-message"></div>
+  </div>
+</body>
+
+</html>

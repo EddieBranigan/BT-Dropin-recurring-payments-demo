@@ -1,0 +1,171 @@
+body {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  min-height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+  background-color: #f9f9f9; /* Light background color */
+  font-family: Arial, sans-serif; /* Clean font */
+}
+
+nav {
+  background-color: #f4f4f4; /* Light background color */
+  padding: 10px 20px;
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Align items in a row */
+  gap: 20px; /* Add spacing between list items */
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Dark text color */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #0073e6; /* Change link color on hover */
+}
+
+/* General form styling for all forms */
+form {
+  max-width: 400px;
+  margin: 20px auto; /* Center the form */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Styling for labels in all forms */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling for input fields in all forms */
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Add focus style for input fields */
+form input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Styling for submit buttons in all forms */
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff; /* Blue button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Specific styling for #mitTransaction form */
+form#mitTransaction {
+  background: linear-gradient(to bottom, #ffffff, #f0f4f8); /* Subtle gradient */
+  margin-top: 30px; /* Extra spacing for visual distinction */
+}
+
+/* Specific styling for #tokenForm form */
+form#tokenForm {
+  background-color: #fefefe; /* Slightly brighter background */
+  border: 1px solid #ddd; /* Lighter border */
+  margin-top: 10px;
+}
+
+/* Additional styling for input fields in #tokenForm */
+form#tokenForm input[type="text"] {
+  background-color: #f8f8f8; /* Light gray background */
+  font-style: italic; /* Italic style to differentiate */
+}
+
+/* Additional spacing between forms */
+form + form {
+  margin-top: 40px;
+}
+
+#dropin-container {
+  padding: 10px;
+}
+
+/* General styling for API response containers */
+div#checkout-message,
+div#nonceResponse,
+div#serverResponse {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for better code readability */
+  font-size: 14px;
+  color: #333;
+  white-space: pre-wrap; /* Preserve whitespace and allow line breaks */
+  overflow-x: auto; /* Enable horizontal scrolling for long text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add subtle differentiation between divs */
+div#checkout-message {
+  background-color: #eaf7ff; /* Light blue */
+  border: 1px solid #b3e5fc;
+}
+
+div#nonceResponse {
+  background-color: #fff8e1; /* Light yellow */
+  border: 1px solid #ffecb3;
+}
+
+div#serverResponse {
+  background-color: #f1f8e9; /* Light green */
+  border: 1px solid #c5e1a5;
+}
+
+/* Styling for <pre> tags inside the divs */
+div#checkout-message pre,
+div#nonceResponse pre,
+div#serverResponse pre {
+  margin: 0;
+  padding: 10px;
+  background-color: #272822; /* Dark background for code (similar to Tomorrow Night theme) */
+  color: #f8f8f2; /* Light text color for readability */
+  border-radius: 5px;
+  overflow-x: auto; /* Enable horizontal scrolling for long code */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  white-space: pre-wrap; /* Ensure wrapping when needed */
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="main">
+  <nav>
+    <ul>
+      <li><a href="/cit.html">Customer Initiated transaction</a></li>
+      <li><a href="/token.html">Creating a payment nonce</a></li>
+      <li><a href="/mit.html">Creating a merchant initiated transaction</a></li>
+    </ul>
+  </nav>
+  <h3>Get Payment Method Nonce from Server:</h3>
+
+  <form id="tokenForm">
+    <label for="token">Payment Token:</label>
+    <input type="text" id="token" value="75v6w232" name="token">
+    <input type="submit" value="Submit">
+  </form>
+
+  <br>
+
+  <h3>Server SDK Response:</h3>
+  <div id="nonceResponse"></div>
+  </div>
+  <script>
+    document.getElementById("tokenForm")
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        const token = document.getElementById("token").value;
+        console.log(token);
+        fetch(`/checkout/getNonce/${token}`)
+          .then(response => response.json())
+          .then((data) => {
+            document.getElementById("nonceResponse").innerHTML = `<pre>${JSON.stringify(data, null, 3)}</pre>`;
+          })
+          .catch((error) => console.error(error));
+      });
+  </script>
+</body>
+
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="main">
+        <nav>
+            <ul>
+                <li><a href="/cit.html">Customer Initiated transaction</a></li>
+                <li><a href="/token.html">Creating a payment nonce</a></li>
+                <li><a href="/mit.html">Creating a merchant initiated transaction</a></li>
+            </ul>
+        </nav>
+        <form id="mitTransaction">
+            <label for="paymentNonce">Payment Nonce:</label>
+            <input type="text" id="nonce" placeholder="nonce from token" name="token">
+            <label for="amount">Transaction amount:</label>
+            <input type="text" id="amount" placeholder="amount for transaction" name="amount">
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <h3>Server SDK Response:</h3>
+        <div id="serverResponse"></div>
+        
+        <script>
+            // Attach an event listener to handle form submission
+            document.getElementById("mitTransaction").addEventListener("submit", async (event) => {
+                event.preventDefault(); // Prevent the default form submission behavior
+        
+                // Get input values
+                const paymentNonce = document.getElementById("nonce").value;
+                const amount = document.getElementById("amount").value;
+        
+                // Clear previous server response
+                const serverResponseDiv = document.getElementById("serverResponse");
+                serverResponseDiv.innerHTML = "";
+        
+                try {
+                    // Send a POST request to the server
+                    const response = await fetch("/checkout", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            paymentMethodNonce: paymentNonce,
+                            amount: amount,
+                            transactionSource: 'recurring'
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    });
+        
+                    // Check if the response is OK
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+        
+                    // Parse the JSON response
+                    const result = await response.json();
+        
+                    // Display the response in the serverResponse div
+                    serverResponseDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                } catch (error) {
+                    // Display error message
+                    serverResponseDiv.innerHTML = `<pre style="color: red;">Error: ${error.message}</pre>`;
+                }
+            });
+        </script>
+        
+</body>
+
+</html>
